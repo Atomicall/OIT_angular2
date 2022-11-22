@@ -1,0 +1,13 @@
+{{ columnNames | json }}
+<table mat-table [dataSource]="data" class="mat-elevation-z8">
+
+
+    <ng-container *ngFor="let c of columns" matColumnDef="{{c.caption}}">
+      <th mat-header-cell *matHeaderCellDef> {{c.caption}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[c.field]}} </td>
+    </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnNames"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnNames;"></tr>
+</table>
+
